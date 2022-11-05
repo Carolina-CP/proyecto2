@@ -8,18 +8,18 @@ import { DataContext } from '../context/DataContext';
 
 const FormularioRegistro = () => {
 
-    const { datosRegistro, setDatosRegistro } = useContext(DataContext);
+    const { datosRegistro, setDatosRegistro, datosRegistroBase, setDatosRegistroBase } = useContext(DataContext);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
 
-    const registroBase = [
-        {nombre: 'Antonia', apellido: 'Durán', mail: 'antonia@duran.com', clave: 'anto'},
-        {nombre: 'Jazz', apellido: 'Posselt', mail: 'jazz@posselt.cl', clave: 'mich'}
-    ]
-
-    const enviarFormularioRegistro = (data) => {
-        console.log(data)
+    const enviarFormularioRegistro = (data, e) => {
+        e.preventDefault();
+        e.target.reset();
+        console.log(data);
+        setDatosRegistro(datosRegistro);
+        setDatosRegistroBase([...datosRegistroBase, { data }])
+        console.log(datosRegistroBase);
     }
 
     return (
