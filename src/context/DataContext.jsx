@@ -1,25 +1,35 @@
-import React, { createContext, useState} from "react";
+import React, { createContext, useState, useEffect } from "react";
+
+
 
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
 
-    const registroBase = [
-        {nombre: 'Antonia', apellido: 'Durán', mail: 'antonia@duran.com', clave: 'anto'},
-        {nombre: 'Jazz', apellido: 'Posselt', mail: 'jazz@posselt.cl', clave: 'mich'}
-    ]
-
-
-    const [datosRegistroBase, setDatosRegistroBase] = useState(registroBase);
+    const [datosRegistroBase, setDatosRegistroBase] = useState([]);
     const [datosRegistro, setDatosRegistro] = useState('');
+    
 
-    const [entradas, setEntradas] = useState([]);
+
+    // useeffect para llamar a la api de servicios    
+   
+  useEffect(() => {
+    consultarInformacion();
+}, []);
+
+
+const consultarInformacion = async () => {
+
+    const response = await fetch('./datos.json')
+    const data = await response.json()
+    setDatosRegistroBase(data);
+}
+
+console.log(datosRegistroBase)
+
 
     return (
-        <DataContext.Provider value={{ 
-            datosRegistro, setDatosRegistro, 
-            datosRegistroBase, setDatosRegistroBase,
-            entradas, setEntradas }}>
+        <DataContext.Provider value={{  datosRegistro, setDatosRegistro, datosRegistroBase, setDatosRegistroBase }}>
             {children}
         </DataContext.Provider>
     )

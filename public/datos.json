@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Victor",
+    "apellido": "Totito",
+    "mail": "tito@tito.ti",
+    "clave": "tito",
+    "sesion": false
+  },
+  {
+    "id": 2,
+    "nombre": "Ana",
+    "apellido": "Nanina",
+    "mail": "ana@nanina.na",
+    "clave": "nana",
+    "sesion": false
+  },
+  {
+    "id": 3,
+    "nombre": "Guadalupe",
+    "apellido": "Lupina",
+    "mail": "lupe@lupe.lu",
+    "clave": "lupe",
+    "sesion": false
+  }
+]

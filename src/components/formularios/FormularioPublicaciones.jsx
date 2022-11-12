@@ -2,18 +2,18 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 //importación de context
-import { DataContext } from '../context/DataContext';
+import { DataContext } from '../../context/DataContext';
 
 const FormularioPublicaciones = () => {
 
-  const { entradas, setEntradas } = useContext(DataContext);
+  const { publicaciones, setPublicaciones } = useContext(DataContext);
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const enviarFormularioPublicaciones = (data, e) => {
-    e.target.reset();
     console.log(data);
-    setEntradas([...entradas, data])
+    setPublicaciones([...publicaciones, data])
+    e.target.reset();
   }
 
   return (
@@ -58,7 +58,7 @@ const FormularioPublicaciones = () => {
 
       <ul>
         {
-          entradas.map(item =>
+          publicaciones.map(item =>
             <li>{item.titulo} - {item.descripcion}</li>
           )
         }

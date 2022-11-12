@@ -1,0 +1,29 @@
+.navegadorPublico{
+    background-color: rgb(234, 234, 234);
+}
+
+.botonIngreso{
+    background-color: rgb(234, 234, 234);
+    color: rgb(221, 110, 66);
+    border: none;
+    text-decoration: none;
+}
+
+.botonIngreso:hover{
+    color: rgb(221, 110, 66);
+    border-bottom: 2px solid rgb(221, 110, 66)
+    
+}
+
+.botonRegistrarse{
+    background-color: rgb(234, 234, 234);
+    color: rgb(79, 109, 122);
+    border: none;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.botonRegistrarse:hover{
+    color: rgb(79, 109, 122);
+    border-bottom: 2px solid rgb(79, 109, 122)
+}

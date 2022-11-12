@@ -2,25 +2,29 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 //importación de context
-import { DataContext } from '../context/DataContext';
+import { DataContext } from '../../context/DataContext';
+
+
 
 
 
 const FormularioRegistro = () => {
 
     const { datosRegistro, setDatosRegistro, datosRegistroBase, setDatosRegistroBase } = useContext(DataContext);
+    console.log(datosRegistroBase)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
 
     const enviarFormularioRegistro = (data, e) => {
         e.preventDefault();
+        console.log(data)
         e.target.reset();
-        console.log(data);
-        setDatosRegistro(datosRegistro);
-        setDatosRegistroBase([...datosRegistroBase, { data }])
+        setDatosRegistro(...datosRegistroBase);
+        setDatosRegistroBase([...datosRegistroBase, data ])
         console.log(datosRegistroBase);
     }
+
 
     return (
         <div>
@@ -38,6 +42,7 @@ const FormularioRegistro = () => {
                 </div>
 
                 <div>
+                    <label>Apellido</label>
                     <input type="text" {...register('apellido',
                         {
                             required: true,

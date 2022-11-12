@@ -1,0 +1,26 @@
+[
+    {
+        "nombre": "Ana",
+        "apellido": "Nanina",
+        "publicacion": [
+            {
+                "idPublicacion": "S001",
+                "descripcion": "Mejora tus habilidades conversacionales y prepara una entrevista on line donde puedas mostrar todo tu potencial. En la actualidad estar preparados para asistir a una entrevista o reunión virtual es una necesidad. No dejes escapar nuevas opciones laborales.",
+                "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlujgASU3uc_t0RRXwHJhFaHh6jqpqjLu8cQ&usqp=CAU",
+                "titulo": "Pubicación 1",
+                "profesion": "Psicologa. Universidad de Chiguayante",
+                "categoria": "Psicologia",
+                "precio": 5950
+            },
+            {
+                "idPublicacion": "S002",
+                "descripcion": "Mejora tus habilidades conversacionales y prepara una entrevista on line donde puedas mostrar todo tu potencial. En la actualidad estar preparados para asistir a una entrevista o reunión virtual es una necesidad. No dejes escapar nuevas opciones laborales.",
+                "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlujgASU3uc_t0RRXwHJhFaHh6jqpqjLu8cQ&usqp=CAU",
+                "titulo": "Pubicación 2",
+                "profesion": "Psicologa. Universidad de Chiguayante",
+                "categoria": "Psicologia",
+                "precio": 5950
+            }
+        ]
+    }
+]

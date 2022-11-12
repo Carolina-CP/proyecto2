@@ -1,0 +1,27 @@
+.navegadorInterno {
+    background-color: rgb(192, 214, 223);
+    color:blueviolet;
+}
+
+
+.inactive{
+    text-decoration: none;
+    color: grey;
+}
+
+.inactive:hover {
+    text-decoration: none;
+    color: rgb(221, 110, 66);
+}
+
+
+.active {
+    color:  rgb(221, 110, 66);
+    border-bottom: 2px solid rgb(221, 110, 66);
+    text-decoration: none;
+}
+
+.active:hover {
+    text-decoration: none;
+    color: rgb(221, 110, 66);
+}
