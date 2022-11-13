@@ -23,11 +23,19 @@ const NuevaPublicacion = () => {
     e.preventDefault();
     console.log(publicacion);
     e.target.reset();
-    setdatosPublicacion(...datosPublicacionBase);
-    setdatosPublicacionBase([...datosPublicacionBase, publicacion])
+    setdatosPublicacion(...datosPublicacionBase,{id:'S004'});
+    setdatosPublicacionBase([...datosPublicacionBase, publicacion]);
    console.log(datosPublicacionBase)
   }
 
+  for(let i = 0; i < datosPublicacionBase.length; i++){
+    const element = datosPublicacionBase[i]
+    element.id = i
+  }
+  
+  console.log(datosPublicacionBase)
+
+ 
   return (
     <>
       <MenuNavegacion />

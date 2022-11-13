@@ -1,26 +1,18 @@
 [
   {
-    "id": 1,
-    "nombre": "Victor",
     "apellido": "Totito",
-    "mail": "tito@tito.ti",
     "clave": "tito",
+    "id": 0,
+    "mail": "tito@tito.ti",
+    "nombre": "Victor",
     "sesion": false
   },
   {
-    "id": 2,
-    "nombre": "Ana",
-    "apellido": "Nanina",
-    "mail": "ana@nanina.na",
+    "apellido": "nanina",
     "clave": "nana",
-    "sesion": false
-  },
-  {
-    "id": 3,
-    "nombre": "Guadalupe",
-    "apellido": "Lupina",
-    "mail": "lupe@lupe.lu",
-    "clave": "lupe",
+    "id": 0,
+    "mail": "ana@nanina.na",
+    "nombre": "Ana",
     "sesion": false
   }
 ]
