@@ -3,17 +3,27 @@ import MenuNavegacion from '../components/MenuNavegacion';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { Button } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
+import { useContext } from 'react';
+import { DataContext } from '../context/DataContext';
 
 const NuevaPublicacion = () => {
   const navigate = useNavigate();
+  const { datosPublicacionBase, setdatosPublicacionBase, datosPublicacion, setdatosPublicacion } = useContext(DataContext);
+
 
   const { register, watch, handleSubmit } = useForm();
 
+  console.log(datosPublicacionBase);
 
-  const segundoForm = (dataDos, e) => {
-    console.log(dataDos)
+  const enviarFormularioPublicaciones = (publicacion, e) => {
+    enviarFormularioPublicaciones.preventDefault();
+    console.log(publicacion);
+    e.target.reset();
+   
   }
 
   return (
@@ -25,24 +35,24 @@ const NuevaPublicacion = () => {
           <div className="row">
 
             <div className="col-sm-5 col-md-6">
-             
-              <Form onSubmit={handleSubmit(segundoForm)} >
+
+              <Form onSubmit={handleSubmit(enviarFormularioPublicaciones)} >
                 <Row className="mb-3">
 
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Categoría</Form.Label>
                     <Form.Select defaultValue="Elige" {...register('categoria')} >
-                      <option value="DG">Diseño Gráfico</option>
-                      <option value="DG">Psicología</option>
-                      <option value="DG">Coaching</option>
+                      <option value="Diseño Gráfico">Diseño Gráfico</option>
+                      <option value="Psicología">Psicología</option>
+                      <option value="Coaching">Coaching</option>
                     </Form.Select>
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Formato</Form.Label>
                     <Form.Select defaultValue="Elige" {...register('formato')}>
-                      <option>On Line</option>
-                      <option>Presencial</option>
+                      <option value="online">On Line</option>
+                      <option value="presencial">Presencial</option>
                     </Form.Select>
                   </Form.Group>
 
@@ -67,8 +77,8 @@ const NuevaPublicacion = () => {
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridZip">
-                    <Form.Label>Formato</Form.Label>
-                    <Form.Control {...register('formato')} />
+                    <Form.Label>proveedor</Form.Label>
+                    <Form.Control {...register('proveedor')} />
                   </Form.Group>
                 </Row>
 
@@ -99,9 +109,16 @@ const NuevaPublicacion = () => {
 
             </div>
 
+
             <div className="col-sm-5 col-md-6 d-flex align-items-center justify-content-center">
-              aquí se verá la publicación
-              <p>Título: {watch('titulo')}</p>
+             <h4> {watch('categoria')} </h4> 
+             <h4> {watch('formato')} </h4> 
+             <h4> {watch('titulo')} </h4>
+             <h4> {watch('duracion')} </h4>
+             <h4> {watch('precio')} </h4>
+             <h4> {watch('proveedor')} </h4>
+             <h4> {watch('descripcion')} </h4>
+
             </div>
 
           </div>
