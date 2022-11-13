@@ -20,10 +20,12 @@ const NuevaPublicacion = () => {
   console.log(datosPublicacionBase);
 
   const enviarFormularioPublicaciones = (publicacion, e) => {
-    enviarFormularioPublicaciones.preventDefault();
+    e.preventDefault();
     console.log(publicacion);
     e.target.reset();
-   
+    setdatosPublicacion(...datosPublicacionBase);
+    setdatosPublicacionBase([...datosPublicacionBase, publicacion])
+   console.log(datosPublicacionBase)
   }
 
   return (
