@@ -12,35 +12,46 @@ import Button from 'react-bootstrap/Button';
 
 const FormularioIngreso = () => {
 
-    const { datosRegistroBase, setDatosRegistroBase} = useContext(DataContext);
-    console.log(`hola lola ${datosRegistroBase[0].nombre}`);
+  const { datosRegistroBase, setDatosRegistroBase, esAutenticado, setIsautenticado } = useContext(DataContext);
+  console.log(`hola lola ${datosRegistroBase[0].nombre}`);
 
-    const navigate = useNavigate();
-  
-    const [miLogin, setLogin] = useState(false);
-    const [usuario, setUsuario] = useState('');
-    const [passwort, setPasswort] = useState('');
+  const navigate = useNavigate();
 
-    function iniciarSesion (e) {
-        e.preventDefault();
-        if (usuario === 'lola@lola.cl' && passwort === 'lola') {
-            navigate(`/novedades`)
-        } 
+  const [usuario, setUsuario] = useState('');
+  const [passwort, setPasswort] = useState('');
+
+  const iniciarSesion = () => {
+    if (!usuario && !passwort) {
+      alert('llene el cuadrito')
+    } else {
+      let usu = datosRegistroBase.find((e) => e.clave === passwort);
+      if (usu !== undefined) {
+        if (usu.clave == passwort) {
+          setIsautenticado(true);
+          navigate(`/novedades`)
+        } else {
+          alert('contraseña mala')
+        }
+      } else {
+        alert('no existe el correo')
+      }
     }
- 
-    return (
-        <div>
-            <h2>FormularioIngreso</h2>
+  }
 
-            <Form>
+
+  return (
+    <div>
+      <h2>FormularioIngreso</h2>
+
+      <Form>
         <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
           <Form.Label>Coreo Electrónico</Form.Label>
-          <Form.Control type="email"  onChange={(e)=>setUsuario(e.target.value)} />
+          <Form.Control type="email" onChange={(e) => setUsuario(e.target.value)} />
         </Form.Group>
 
         <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
           <Form.Label>Contraseña</Form.Label>
-          <Form.Control type="password"  onChange={(e)=>setPasswort(e.target.value)} />
+          <Form.Control type="password" onChange={(e) => setPasswort(e.target.value)} />
         </Form.Group>
 
 
@@ -55,8 +66,8 @@ const FormularioIngreso = () => {
         onClick={() => navigate(`/registrarse`)}
       >Crear Cuenta</Button>
 
-        </div>
-    )
+    </div>
+  )
 }
 
 export default FormularioIngreso

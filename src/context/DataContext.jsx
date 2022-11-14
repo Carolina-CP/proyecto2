@@ -21,14 +21,15 @@ export const DataProvider = ({ children }) => {
     }
     console.log(datosRegistroBase)
 
+   
+    const [esAutenticado, setIsautenticado] = useState(false);
+
     const [datosPublicacionBase, setdatosPublicacionBase] = useState([]);
     const [datosPublicacion, setdatosPublicacion] = useState('');
 
     useEffect(() => {
         consultarPublicaciones();
     }, []);
-
-  
 
     const consultarPublicaciones = async () => {
         const response = await fetch('./publicaciones.json')
@@ -37,10 +38,12 @@ export const DataProvider = ({ children }) => {
     }
     console.log(datosPublicacionBase)
 
+
     return (
         <DataContext.Provider value={{
             datosRegistro, setDatosRegistro,
             datosRegistroBase, setDatosRegistroBase,
+            esAutenticado, setIsautenticado,
             datosPublicacionBase, setdatosPublicacionBase,
             datosPublicacion, setdatosPublicacion
         }}>
