@@ -21,21 +21,24 @@ const FormularioRegistro = () => {
         console.log(data)
         e.target.reset();
         setDatosRegistro(...datosRegistroBase);
-        setDatosRegistroBase([...datosRegistroBase, data ])
+        data.sesion = false;
+        setDatosRegistroBase([...datosRegistroBase, data])
         console.log(datosRegistroBase);
     }
 
-    for(let i = 0; i < datosRegistroBase.length; i++){
+    for (let i = 0; i < datosRegistroBase.length; i++) {
         const element = datosRegistroBase[i]
         element.id = i
-      }
-      
-      console.log(datosRegistroBase)
+    }
 
-    /* 
-      for(var i=0; i < datosRegistroBase; i++){
+    console.log(datosRegistroBase)
+
+
+
+
+    for (var i = 0; i < datosRegistroBase; i++) {
         datosRegistroBase[i].nuevobooleano = true;
-    } */
+    }
 
     console.log(datosRegistroBase)
 
