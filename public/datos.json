@@ -1,18 +1,18 @@
 [
   {
-    "apellido": "Totito",
-    "clave": "tito",
+    "apellido": "Collao",
+    "clave": "kari",
     "id": 0,
-    "mail": "tito@tito.ti",
-    "nombre": "Victor",
-    "sesion": false
+    "mail": "karina@collao.cl",
+    "nombre": "Karina",
+    "sesion": ""
   },
   {
-    "apellido": "nanina",
-    "clave": "nana",
+    "apellido": "Collao",
+    "clave": "caro",
     "id": 0,
-    "mail": "ana@nanina.na",
-    "nombre": "Ana",
-    "sesion": false
+    "mail": "carola@collao.cl",
+    "nombre": "Carolina",
+    "sesion": ""
   }
 ]

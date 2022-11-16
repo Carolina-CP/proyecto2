@@ -12,8 +12,7 @@ import Button from 'react-bootstrap/Button';
 
 const FormularioIngreso = () => {
 
-  const { datosRegistroBase, setDatosRegistroBase, esAutenticado, setIsautenticado } = useContext(DataContext);
-  console.log(`hola lola ${datosRegistroBase[0].nombre}`);
+  const { datosRegistroBase, setDatosRegistroBase, sesion, setSesion } = useContext(DataContext);
 
   const navigate = useNavigate();
 
@@ -22,22 +21,22 @@ const FormularioIngreso = () => {
 
   const iniciarSesion = () => {
     if (!usuario && !passwort) {
-      alert('llene el cuadrito')
+      alert('Complete el formulario')
     } else {
-      let usu = datosRegistroBase.find((e) => e.clave === passwort);
-      if (usu !== undefined) {
-        if (usu.clave == passwort) {
-          setIsautenticado(true);
+      let usuario = datosRegistroBase.find((e) => e.clave === passwort);
+      if (usuario !== undefined) {
+        if (usuario.clave == passwort) {
+          setSesion(true);
           navigate(`/novedades`)
         } else {
-          alert('contraseña mala')
+          alert('Contraseña equivocada')
         }
       } else {
-        alert('no existe el correo')
+        alert('El correo ingresado no existe')
       }
     }
   }
-
+ console.log(sesion)
 
   return (
     <div>
@@ -68,6 +67,6 @@ const FormularioIngreso = () => {
 
     </div>
   )
-}
 
+}
 export default FormularioIngreso

@@ -21,8 +21,9 @@ export const DataProvider = ({ children }) => {
     }
     console.log(datosRegistroBase)
 
-   
-    const [esAutenticado, setIsautenticado] = useState(false);
+
+    const [sesion, setSesion] = useState(false);
+    console.log(sesion)
 
     const [datosPublicacionBase, setdatosPublicacionBase] = useState([]);
     const [datosPublicacion, setdatosPublicacion] = useState('');
@@ -43,7 +44,7 @@ export const DataProvider = ({ children }) => {
         <DataContext.Provider value={{
             datosRegistro, setDatosRegistro,
             datosRegistroBase, setDatosRegistroBase,
-            esAutenticado, setIsautenticado,
+            sesion, setSesion,
             datosPublicacionBase, setdatosPublicacionBase,
             datosPublicacion, setdatosPublicacion
         }}>

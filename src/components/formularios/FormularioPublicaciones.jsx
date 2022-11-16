@@ -1,71 +1,73 @@
 //importación de hooks y dependencias
-import { useContext } from 'react';
-import { useForm } from 'react-hook-form';
+import { useContext, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 //importación de context
 import { DataContext } from '../../context/DataContext';
 
-const FormularioPublicaciones = () => {
+//importación de estilos 
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-  const { publicaciones, setPublicaciones } = useContext(DataContext);
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+const FormularioIngreso = () => {
 
-  const enviarFormularioPublicaciones = (data, e) => {
-    console.log(data);
-    setPublicaciones([...publicaciones, data])
-    e.target.reset();
+  const { datosRegistroBase, setDatosRegistroBase, sesion, setSesion } = useContext(DataContext);
+  console.log(`hola lola ${datosRegistroBase[0].nombre}`);
+
+  const navigate = useNavigate();
+
+  const [usuario, setUsuario] = useState('');
+  const [passwort, setPasswort] = useState('');
+
+  const iniciarSesion = () => {
+    if (!usuario && !passwort) {
+      alert('llene el cuadrito')
+    } else {
+      let usu = datosRegistroBase.find((e) => e.clave === passwort);
+      if (usu !== undefined) {
+        if (usu.clave == passwort) {
+          setSesion(true);
+          navigate(`/novedades`)
+        } else {
+          alert('contraseña mala')
+        }
+      } else {
+        alert('no existe el correo')
+      }
+    }
   }
+
 
   return (
     <div>
-      <h2>Publicar</h2>
+      <h2>FormularioIngreso</h2>
 
-      <form onSubmit={handleSubmit(enviarFormularioPublicaciones)}>
-        <input
-          name='titulo'
-          placeholder='ingrese titulo'
-          className='form-control my-2'
-          {...register('titulo',
-            {
-              required: { value: true, message: 'Campo obligatorio' }
-            }
-          )}
-        ></input>
-        {errors.titulo && <spam
-          className='text-danger text-small d-block mb-2'>
-          {errors.titulo.message}</spam>}
+      <Form>
+        <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
+          <Form.Label>Coreo Electrónico</Form.Label>
+          <Form.Control type="email" onChange={(e) => setUsuario(e.target.value)} />
+        </Form.Group>
 
-        <input
-          name='descripcion'
-          placeholder='ingrese descripcion'
-          className='form-control my-2'
-          {...register('descripcion',
-            {
-              required: { value: true, message: 'Campo obligatorio' }
-            }
-          )}
-        ></input>
-        {errors.descripcion && <spam
-          className='text-danger text-small d-block mb-2'>
-          {errors.descripcion.message}</spam>}
-
-        <button
-          className='btn btn-primary'
-        >Agregar</button>
-
-      </form>
+        <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
+          <Form.Label>Contraseña</Form.Label>
+          <Form.Control type="password" onChange={(e) => setPasswort(e.target.value)} />
+        </Form.Group>
 
 
-      <ul>
-        {
-          publicaciones.map(item =>
-            <li>{item.titulo} - {item.descripcion}</li>
-          )
-        }
-      </ul>
+        <Button className='m-4'
+          onClick={iniciarSesion}
+        >Ingresar</Button>
+      </Form>
+
+      <p>¿Aún no tienes tu cuenta?</p>
+
+      <Button type="btn" className='m-4'
+        onClick={() => navigate(`/registrarse`)}
+      >Crear Cuenta</Button>
 
     </div>
   )
 }
 
-export default FormularioPublicaciones
+export default FormularioIngreso

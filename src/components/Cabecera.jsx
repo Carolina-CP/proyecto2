@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 
@@ -7,8 +7,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import LogoPNG from '..//assets/img/LogoPNG.png'
 
 import '..//assets/css/estiloCabecera.css'
+import '..//context/DataContext'
+
 
 const Cabecera = () => {
+
+  
+
+
     return (
         <>
             <Navbar className='navegadorPublico' expand="lg">
@@ -22,7 +28,6 @@ const Cabecera = () => {
                     </Navbar.Brand>
                     
                     <Nav className="justify-content-end">
-
 
                         <Nav.Item to='/Ingresar'>
                             <NavLink className="botonIngreso" to="/ingresar">
