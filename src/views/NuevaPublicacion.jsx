@@ -15,7 +15,7 @@ const NuevaPublicacion = () => {
   const { datosPublicacionBase, setdatosPublicacionBase, datosPublicacion, setdatosPublicacion } = useContext(DataContext);
 
 
-  const { register, watch, handleSubmit, formState: { errors }  } = useForm();
+  const { register, watch, handleSubmit, formState: { errors } } = useForm();
 
   console.log(datosPublicacionBase);
 
@@ -23,35 +23,36 @@ const NuevaPublicacion = () => {
     e.preventDefault();
     console.log(publicacion);
     e.target.reset();
-    setdatosPublicacion(...datosPublicacionBase,{id:'S004'});
+    setdatosPublicacion(...datosPublicacionBase, { id: 'S004' });
     setdatosPublicacionBase([...datosPublicacionBase, publicacion]);
-   console.log(datosPublicacionBase)
+    console.log(datosPublicacionBase)
+    navigate(`/novedades`)
   }
 
-  for(let i = 0; i < datosPublicacionBase.length; i++){
+  for (let i = 0; i < datosPublicacionBase.length; i++) {
     const element = datosPublicacionBase[i]
     element.id = i
   }
-  
+
   console.log(datosPublicacionBase)
 
- 
+
   return (
     <>
       <MenuNavegacion />
-      <div className="container my-4 justify-content-center">
+      <div className="container my-4 justify-content-center border border-primary">
 
-        <div className="container my-4 justify-content-center mt-4">
-          <div className="row">
+        <div className="container my-4 justify-content-center mt-4 border border-secondary">
+          <div className="row border border-success">
 
-            <div className="col-sm-5 col-md-6">
+            <div className="col-sm-5 col-md-6 border border-danger">
 
               <Form onSubmit={handleSubmit(enviarFormularioPublicaciones)} >
                 <Row className="mb-3">
 
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Categoría</Form.Label>
-                    <Form.Select defaultValue="Elige" {...register('categoria')} >
+                    <Form.Select  {...register('categoria')} >
                       <option value="Diseño Gráfico">Diseño Gráfico</option>
                       <option value="Psicología">Psicología</option>
                       <option value="Coaching">Coaching</option>
@@ -60,9 +61,10 @@ const NuevaPublicacion = () => {
 
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Formato</Form.Label>
-                    <Form.Select defaultValue="Elige" {...register('formato')}>
-                      <option value="online">On Line</option>
-                      <option value="presencial">Presencial</option>
+
+                    <Form.Select defaultValue="Elige"  {...register('formato')}>
+                      <option value="nline">On Line</option>
+                      <option value="Presencial">Presencial</option>
                     </Form.Select>
                   </Form.Group>
 
@@ -72,51 +74,51 @@ const NuevaPublicacion = () => {
                 <Form.Group className="mb-3" >
                   <Form.Label>Nombre del Servicio</Form.Label>
                   <Form.Control placeholder="Ej: diseño de currículo" {...register('titulo',
-                        {
-                            required: true,
-                        }
-                    )} />
-                    {errors.titulo?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
+                    {
+                      required: true,
+                    }
+                  )} />
+                  {errors.titulo?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
                 </Form.Group>
 
                 <Row className="mb-3">
 
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Imagen</Form.Label>
-                    <Form.Control type="text" {...register('imagen')} />
+                    <Form.Control type="file" {...register('imagen')} />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>Precio</Form.Label>
                     <Form.Control {...register('precio',
-                        {
-                            required: true,
-                        }
+                      {
+                        required: true,
+                      }
                     )} />
                     {errors.precio?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
-                </Form.Group>
+                  </Form.Group>
 
 
                   <Form.Group as={Col} controlId="formGridZip">
                     <Form.Label>proveedor</Form.Label>
-                    <Form.Control {...register('proveedor',
-                        {
-                            required: true,
-                        }
+                    <Form.Control placeholder="Nombre y apellido"  {...register('proveedor',
+                      {
+                        required: true,
+                      }
                     )} />
                     {errors.proveedor?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
-                </Form.Group>
+                  </Form.Group>
 
                 </Row>
 
                 <Form.Group className="" controlId="exampleForm.ControlTextarea1">
                   <Form.Label>Descripción</Form.Label>
                   <Form.Control as="textarea" rows={3} {...register('descripcion',
-                        {
-                            required: true,
-                        }
-                    )} />
-                    {errors.descripcion?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
+                    {
+                      required: true,
+                    }
+                  )} />
+                  {errors.descripcion?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
                 </Form.Group>
 
 
@@ -124,16 +126,12 @@ const NuevaPublicacion = () => {
 
                 <div class="d-grid gap-2 col-6 mx-auto mt-4">
 
-                  {/*}  
+                
                   <button class="btn btn-primary"
-                    type="button"
+                  
                     style={{ backgroundColor: 'rgb(221, 110, 66)', color: 'white', border: 'none' }}
-                    onClick={() => navigate(`/novedades`)}>
-                     Publicar</button> {*/}
-
-                  <input type="submit" value="enviar" />
-
-
+                   type="submit">
+                     Publicar</button> 
 
                 </div>
 
@@ -142,14 +140,48 @@ const NuevaPublicacion = () => {
             </div>
 
 
-            <div className="col-sm-5 col-md-6 d-flex align-items-center justify-content-center">
-             <h4> {watch('categoria')} </h4> 
-             <h4> {watch('formato')} </h4> 
-             <h4> {watch('titulo')} </h4>
-             <div src={watch('imagen')} >  </div>
-             <h4> {watch('precio')} </h4>
-             <h4> {watch('proveedor')} </h4>
-             <h4> {watch('descripcion')} </h4>
+            <div className="col-sm-5 col-md-6 d-flex align-items-center justify-content-center border border-danger">
+
+              {/*}  <h4> {watch('categoria')} </h4>
+              <h4> {watch('formato')} </h4>
+              <h4> {watch('titulo')} </h4>
+              <div src={watch('imagen')} >  </div>
+              <h4> {watch('precio')} </h4>
+              <h4> {watch('proveedor')} </h4>
+                    <h4> {watch('descripcion')} </h4> {*/}
+
+              <div className=" row border border-info">
+                <div className="col-sm-5 col-md-6">
+                  <Card>
+                    <Card.Header className=" border-bottom">{watch('categoria')} - {watch('formato')} </Card.Header>
+                    <Card.Body className="card-block text-start">
+                      <Card.Title style={{ color: 'rgb(79, 109, 122)' }}
+                        className="fs-4">{watch('titulo')}</Card.Title>
+                      <Card.Subtitle className="text-muted">{watch('proveedor')}</Card.Subtitle>
+                      <Card.Text className="card-text mt-2">{watch('descripcion')}</Card.Text>
+                    </Card.Body>
+                    <Card.Body className='text-center'>
+                      <span style={{ color: 'rgb(221, 110, 66)' }}
+                        className='fs-4'>$ {watch('precio')}</span>
+                    </Card.Body>
+                    <Card.Body className="d-grid gap-2">
+                      <Button variant="secondary">Comprar</Button>
+                    </Card.Body>
+                  </Card>
+                </div>
+                <div className="col-sm-5 col-md-6">
+                  <Card>
+                    <Card.Body>
+                      <Card.Img variant="top" src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500.js/100px180" />
+                    </Card.Body>
+                  </Card>
+                </div>
+
+              </div>
+
+            </div >
+            <div >
+
 
             </div>
 
