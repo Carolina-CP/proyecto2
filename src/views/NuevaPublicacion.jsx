@@ -15,7 +15,7 @@ const NuevaPublicacion = () => {
   const { datosPublicacionBase, setdatosPublicacionBase, datosPublicacion, setdatosPublicacion } = useContext(DataContext);
 
 
-  const { register, watch, handleSubmit } = useForm();
+  const { register, watch, handleSubmit, formState: { errors }  } = useForm();
 
   console.log(datosPublicacionBase);
 
@@ -71,30 +71,52 @@ const NuevaPublicacion = () => {
 
                 <Form.Group className="mb-3" >
                   <Form.Label>Nombre del Servicio</Form.Label>
-                  <Form.Control placeholder="Ej: diseño de currículo" {...register('titulo')} />
+                  <Form.Control placeholder="Ej: diseño de currículo" {...register('titulo',
+                        {
+                            required: true,
+                        }
+                    )} />
+                    {errors.titulo?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
                 </Form.Group>
 
                 <Row className="mb-3">
 
                   <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Label>Duración</Form.Label>
-                    <Form.Control type="text" {...register('duracion')} />
+                    <Form.Label>Imagen</Form.Label>
+                    <Form.Control type="text" {...register('imagen')} />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>Precio</Form.Label>
-                    <Form.Control {...register('precio')} />
-                  </Form.Group>
+                    <Form.Control {...register('precio',
+                        {
+                            required: true,
+                        }
+                    )} />
+                    {errors.precio?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
+                </Form.Group>
+
 
                   <Form.Group as={Col} controlId="formGridZip">
                     <Form.Label>proveedor</Form.Label>
-                    <Form.Control {...register('proveedor')} />
-                  </Form.Group>
+                    <Form.Control {...register('proveedor',
+                        {
+                            required: true,
+                        }
+                    )} />
+                    {errors.proveedor?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
+                </Form.Group>
+
                 </Row>
 
                 <Form.Group className="" controlId="exampleForm.ControlTextarea1">
                   <Form.Label>Descripción</Form.Label>
-                  <Form.Control as="textarea" rows={3} {...register('descripcion')} />
+                  <Form.Control as="textarea" rows={3} {...register('descripcion',
+                        {
+                            required: true,
+                        }
+                    )} />
+                    {errors.descripcion?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
                 </Form.Group>
 
 
@@ -124,7 +146,7 @@ const NuevaPublicacion = () => {
              <h4> {watch('categoria')} </h4> 
              <h4> {watch('formato')} </h4> 
              <h4> {watch('titulo')} </h4>
-             <h4> {watch('duracion')} </h4>
+             <div src={watch('imagen')} >  </div>
              <h4> {watch('precio')} </h4>
              <h4> {watch('proveedor')} </h4>
              <h4> {watch('descripcion')} </h4>

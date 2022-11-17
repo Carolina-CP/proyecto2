@@ -1,16 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 //importación de hooks y dependencias
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 //importación de context
 import { DataContext } from '../../context/DataContext';
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
-const FormularioRegistro = () => {
-
-    const navigate = useNavigate();
+const Prueba = () => {
 
     const { datosRegistro, setDatosRegistro, datosRegistroBase, setDatosRegistroBase } = useContext(DataContext);
     console.log(datosRegistroBase)
@@ -26,7 +23,6 @@ const FormularioRegistro = () => {
         data.sesion = false;
         setDatosRegistroBase([...datosRegistroBase, data])
         console.log(datosRegistroBase);
-        navigate(`/ingresar`)
     }
 
     for (let i = 0; i < datosRegistroBase.length; i++) {
@@ -44,28 +40,27 @@ const FormularioRegistro = () => {
     console.log(datosRegistroBase)
 
     return (
-        <div>
-
+        <div className='container text-center '>
             <Form onSubmit={handleSubmit(enviarFormularioRegistro)}>
-                <Form.Group className="mb-3 text-start" >
+                <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control type="text" {...register('nombre',
                         {
                             required: true,
                         }
                     )} />
-                    {errors.nombre?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
+                    {errors.apellido?.type === 'required' && <span>This field is required</span>}
                 </Form.Group>
 
-
-                <Form.Group className="mb-3 text-start" >
+                <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
                     <Form.Label>Apellido</Form.Label>
                     <Form.Control type="text" {...register('apellido',
                         {
                             required: true,
                         }
                     )} />
-                    {errors.apellido?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
+                     {errors.mail?.type === 'required' && <span>This field is required</span>}
+                    {errors.mail?.type === 'pattern' && <span>This field is required</span>}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
@@ -76,8 +71,9 @@ const FormularioRegistro = () => {
                             pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
                         }
                     )} />
-                    {errors.mail?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
-                    {errors.mail?.type === 'pattern' && <span className="text-small text-warning">El formato no es válido</span>}
+                      {errors.clave?.type === 'required' && <span>This field is required</span>}
+                    {errors.clave?.type === 'maxLength' && <span>Te pasaste 10 pueblos</span>}
+                    {errors.clave?.type === 'minLength' && <span>Te faltan palos</span>}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
@@ -86,25 +82,19 @@ const FormularioRegistro = () => {
                         {
                             required: true,
                             maxLength: 4,
-                            minLength: 4
+                            minLength: 3
                         }
                     )} />
-                    {errors.clave?.type === 'required' && <span className="text-small text-warning">Este campo es obligatorio</span>}
-                    {errors.clave?.type === 'pattern' && <span className="text-small text-warning">El formato no es válido</span>}
-                    {errors.clave?.type === 'maxLength' && <span className="text-small text-warning">La clave debe contener 4 letras</span>}
-                    {errors.clave?.type === 'minLength' && <span className="text-small text-warning">La clave debe contener 4 letras</span>}
                 </Form.Group>
 
-                <Button type='submit'
-                style={{ backgroundColor: 'rgb(221, 110, 66)', color: 'white', border: 'none' }}
-                >Crear Cuenta</Button>
 
+                <Button className='m-4'
+                    onClick={() => navigate(`/ingresar`)}
+                >Crear cuenta</Button>
             </Form>
-
 
         </div>
     )
 }
 
-export default FormularioRegistro
-
+export default Prueba

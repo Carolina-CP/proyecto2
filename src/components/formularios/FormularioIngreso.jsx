@@ -36,11 +36,10 @@ const FormularioIngreso = () => {
       }
     }
   }
- console.log(sesion)
+  console.log(sesion)
 
   return (
     <div>
-      <h2>FormularioIngreso</h2>
 
       <Form>
         <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
@@ -56,6 +55,7 @@ const FormularioIngreso = () => {
 
         <Button className='m-4'
           onClick={iniciarSesion}
+          style={{ backgroundColor: 'rgb(221, 110, 66)', color: 'white', border: 'none' }}
         >Ingresar</Button>
       </Form>
 
@@ -63,6 +63,7 @@ const FormularioIngreso = () => {
 
       <Button type="btn" className='m-4'
         onClick={() => navigate(`/registrarse`)}
+        style={{ backgroundColor: 'rgb(79, 109, 122)', color: 'white', border: 'none' }}
       >Crear Cuenta</Button>
 
     </div>
