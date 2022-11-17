@@ -26,7 +26,9 @@ const NuevaPublicacion = () => {
     setdatosPublicacion(...datosPublicacionBase, { id: 'S004' });
     setdatosPublicacionBase([...datosPublicacionBase, publicacion]);
     console.log(datosPublicacionBase)
+    e.target.reset();
     navigate(`/novedades`)
+
   }
 
   for (let i = 0; i < datosPublicacionBase.length; i++) {
@@ -85,7 +87,7 @@ const NuevaPublicacion = () => {
 
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Imagen</Form.Label>
-                    <Form.Control type="file" {...register('imagen')} />
+                    <Form.Control type="url" {...register('imagen')} />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridCity">
@@ -142,14 +144,6 @@ const NuevaPublicacion = () => {
 
             <div className="col-sm-5 col-md-6 d-flex align-items-center justify-content-center border border-danger">
 
-              {/*}  <h4> {watch('categoria')} </h4>
-              <h4> {watch('formato')} </h4>
-              <h4> {watch('titulo')} </h4>
-              <div src={watch('imagen')} >  </div>
-              <h4> {watch('precio')} </h4>
-              <h4> {watch('proveedor')} </h4>
-                    <h4> {watch('descripcion')} </h4> {*/}
-
               <div className=" row border border-info">
                 <div className="col-sm-5 col-md-6">
                   <Card>
@@ -172,7 +166,7 @@ const NuevaPublicacion = () => {
                 <div className="col-sm-5 col-md-6">
                   <Card>
                     <Card.Body>
-                      <Card.Img variant="top" src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500.js/100px180" />
+                      <Card.Img variant="top" src={watch('imagen')} />
                     </Card.Body>
                   </Card>
                 </div>
