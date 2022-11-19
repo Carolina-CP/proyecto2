@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { DataContext } from '../context/DataContext';
+import '../assets/css/estiloPublicaciones.css';
 
 const NuevaPublicacion = () => {
   const navigate = useNavigate();
@@ -23,22 +24,24 @@ const NuevaPublicacion = () => {
     e.preventDefault();
     console.log(publicacion);
     e.target.reset();
-    setdatosPublicacion(...datosPublicacionBase, { id: 'S004' });
+    setdatosPublicacion(...datosPublicacionBase);
     setdatosPublicacionBase([...datosPublicacionBase, publicacion]);
     console.log(datosPublicacionBase)
     e.target.reset();
     navigate(`/novedades`)
 
   }
-
+/*
   for (let i = 0; i < datosPublicacionBase.length; i++) {
     const element = datosPublicacionBase[i]
     element.id = i
+    console.log('incrementar')
+    console.log(i)
   }
 
   console.log(datosPublicacionBase)
 
-
+*/
   return (
     <>
       <MenuNavegacion />
@@ -55,6 +58,7 @@ const NuevaPublicacion = () => {
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Categoría</Form.Label>
                     <Form.Select  {...register('categoria')} >
+                      <option selected>Selecciona...</option>
                       <option value="Diseño Gráfico">Diseño Gráfico</option>
                       <option value="Psicología">Psicología</option>
                       <option value="Coaching">Coaching</option>
@@ -65,7 +69,8 @@ const NuevaPublicacion = () => {
                     <Form.Label>Formato</Form.Label>
 
                     <Form.Select defaultValue="Elige"  {...register('formato')}>
-                      <option value="nline">On Line</option>
+                      <option selected>Selecciona...</option>
+                      <option value="Online">On Line</option>
                       <option value="Presencial">Presencial</option>
                     </Form.Select>
                   </Form.Group>
@@ -128,12 +133,12 @@ const NuevaPublicacion = () => {
 
                 <div class="d-grid gap-2 col-6 mx-auto mt-4">
 
-                
+
                   <button class="btn btn-primary"
-                  
+
                     style={{ backgroundColor: 'rgb(221, 110, 66)', color: 'white', border: 'none' }}
-                   type="submit">
-                     Publicar</button> 
+                    type="submit">
+                    Publicar</button>
 
                 </div>
 
@@ -165,9 +170,9 @@ const NuevaPublicacion = () => {
                 </div>
                 <div className="col-sm-5 col-md-6">
                   <Card>
-                    <Card.Body>
-                      <Card.Img variant="top" src={watch('imagen')} />
-                    </Card.Body>
+                 
+                      <Card.Img className='imagen-publicaciones' variant="top" src={watch('imagen')} />
+                 
                   </Card>
                 </div>
 

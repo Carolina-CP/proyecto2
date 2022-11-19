@@ -9,19 +9,20 @@ const Tarjeta = () => {
 
     const navigate = useNavigate();
 
-    const { datosRegistroBase } = useContext(DataContext);
+    const { datosPublicacionBase, setdatosPublicacionBase, datosPublicacion, setdatosPublicacion } = useContext(DataContext);
 
     console.log('este es novedades')
-    console.log({ datosRegistroBase})
+    console.log({ datosPublicacionBase})
 
+  
 
   return (
     <>
     <div className="row row-cols-md-auto justify-content-center">
-        {datosRegistroBase.map(d =>
+        {datosPublicacionBase.map(d =>
             <Card className='m-3' style={{ width: '21rem' }}>
-                <Card.Title className="text-muted">{d.nombre}</Card.Title>
-                <Card.Img variant="top" src={d.img} />
+                <Card.Title className="text-muted"> id: {d.id} - {d.titulo}</Card.Title>
+                <Card.Img variant="top" src={d.imagen} alt={d.titulo} />
                 <Card.Body>
 
                     <Card.Subtitle className="mb-2 text-muted">{d.proveedor}</Card.Subtitle>

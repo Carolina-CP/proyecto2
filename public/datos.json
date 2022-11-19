@@ -5,7 +5,8 @@
     "id": 0,
     "mail": "karina@collao.cl",
     "nombre": "Karina",
-    "sesion": ""
+    "sesion": "",
+    "profesion":"psicóloga"
   },
   {
     "apellido": "Collao",
@@ -13,6 +14,7 @@
     "id": 0,
     "mail": "carola@collao.cl",
     "nombre": "Carolina",
-    "sesion": ""
+    "sesion": "",
+    "profesion":"coaching"
   }
 ]

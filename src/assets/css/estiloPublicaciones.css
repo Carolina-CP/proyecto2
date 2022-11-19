@@ -1,0 +1,13 @@
+.publicaciones{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.imagen-publicaciones{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(241, 244, 245);
+
+}

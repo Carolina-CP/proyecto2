@@ -2,31 +2,31 @@
     {
         "categoria": "Psicologia",
         "descripcion": "Mejora tus habilidades conversacionales y prepara una entrevista on line donde puedas mostrar todo tu potencial. En la actualidad estar preparados para asistir a una entrevista o reunión virtual es una necesidad. No dejes escapar nuevas opciones laborales.",
-        "duracion": "1 hora",
         "formato": "presencial",
         "id": 0,
+        "imagen": "https://images2.listindiario.com/n/content/457/456826/p/680x460/201703072359101.jpeg?mrf-size=m",
         "precio": "5950",
         "proveedor": "Rosa Rosales",
-        "titulo": "Pubicación 2"
+        "titulo": "Consideraciones para una Entrevista On Line"
     },
     {
         "categoria": "diseño gráfico",
         "descripcion": "Mejora tus habilidades conversacionales y prepara una entrevista on line donde puedas mostrar todo tu potencial. En la actualidad estar preparados para asistir a una entrevista o reunión virtual es una necesidad. No dejes escapar nuevas opciones laborales.",
-        "duracion": "1 día",
-        "formato": "presencial",
+        "formato": "online",
         "id": 1,
+        "imagen": "https://st.depositphotos.com/1637787/2927/i/600/depositphotos_29270435-stock-photo-happy-man-working-with-laptop.jpg",
         "precio": "5950",
         "proveedor": "Marcelo Marcelino",
-        "titulo": "Pubicación 2"
+        "titulo": "Diseño de un curriculo moderno"
     },
     {
         "categoria": "coaching",
         "descripcion": "Mejora tus habilidades conversacionales y prepara una entrevista on line donde puedas mostrar todo tu potencial. En la actualidad estar preparados para asistir a una entrevista o reunión virtual es una necesidad. No dejes escapar nuevas opciones laborales.",
-        "duracion": "2 horas",
         "formato": "presencial",
         "id": 2,
+        "imagen": "https://static.elcorreo.com/www/pre2017/multimedia/RC/201603/08/media/cortadas/mujer-empresa--575x323.jpg",
         "precio": "5950",
         "proveedor": "Anita Andrade",
-        "titulo": "Pubicación 2"
+        "titulo": "El papel del lenguaje en el éxito de una entrevista"
     }
 ]

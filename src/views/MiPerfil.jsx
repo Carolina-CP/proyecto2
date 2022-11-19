@@ -10,7 +10,7 @@ const MiPerfil = () => {
   
   const navigate = useNavigate();
 
-  const { datosRegistroBase } = useContext(DataContext);
+  const { datosRegistroBase, sesion } = useContext(DataContext);
   console.log('bandera perfil')
   console.log(datosRegistroBase[0].proveedor)
 
@@ -28,18 +28,21 @@ const MiPerfil = () => {
       color: 'rgb(79, 109, 122)'
     }}>
     <div >
-
-      <Card className='border-0 bg-transparent ' style={{ width: '18rem' }}>
+  <h3>Mis Datos</h3>
+   { datosRegistroBase.map(d => 
+         <Card key={d.id} className='border-0 bg-transparent ' style={{ width: '18rem' }}>
         <Card.Body
           className='border-none '>
-          <Card.Title>{datosRegistroBase[0].proveedor}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">{datosRegistroBase[0].profesion}</Card.Subtitle>
+          <Card.Title>{d.nombre} {d.apellido}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{d.mail}</Card.Subtitle>
           <Card.Text>
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </Card.Text>
         </Card.Body>
       </Card>
+        )} 
+
 
       <div className="col-sm-5 col-md-6 d-flex align-items-center justify-content-center">
               <div class="d-grid gap-2 col-6 mx-auto">
